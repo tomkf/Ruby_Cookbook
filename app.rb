@@ -5,8 +5,8 @@ require 'csv'
 require_relative 'view'
 require_relative 'recipe_model'
 
-csv_file   = File.join(__dir__, 'recipes.csv') # define file path for csv storage
-cookbook   = Cookbook.new(csv_file) # create the repo instance
+# csv_file   = File.join(__dir__, 'recipes.csv') # define file path for csv storage
+cookbook   = Cookbook.new # create the repo instance
 controller = Controller.new(cookbook) # create the controller, give it the repo
 
 router = Router.new(controller) # holds reference to the controller

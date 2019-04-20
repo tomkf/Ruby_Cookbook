@@ -10,9 +10,9 @@ class View
   def get_new
     puts 'Pick a name for your recipe'
     recipe_name = gets.chomp
-    puts 'O.K buddy, describe your recipe in a few words'
+    puts 'Describe your recipe in a few words'
     description = gets.chomp
-    puts 'Good choice, I just added your reicpe to the cookbook'
+    puts "Good choice, I just added the #{recipe_name} recipe to the cookbook"
     return new_val = [recipe_name, description]
   end
 
@@ -20,8 +20,10 @@ def destroy(info_from_repo)
 display(info_from_repo)
 puts "Enter the corresponding number of the recipe you would like to destroy: "
 user_input = gets.chomp.to_i 
-user_input += 1
-puts "O.K, I removed #{info_from_repo[user_input]} from the cookbook"
+user_input -= 1
+display_obj = info_from_repo[user_input]
+puts "O.K, I removed #{display_obj.name} from the cookbook"
+return user_input
 end
 
 end

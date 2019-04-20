@@ -23,11 +23,12 @@ class Cookbook
   end
 
   def remove_recipe(recipe_index) 
-    if csv_file_path == nil
     @local_storage.delete_at(recipe_index)
-   else 
-
-   end
+    CSV.open(@csv_file_path, "w") do |csv|
+      @local_storage.each do |item|
+        csv << [item.name, item.description]
+      end
+    end
   end
  end
 

@@ -1,12 +1,12 @@
-class Router
+class Router # #initialized with controller instance
   def initialize(controller)
     @controller = controller
     @running    = true
   end
 
   def run
-    puts "Welcome to the Cookbook!"
-    puts "           --           "
+    puts 'Welcome to the Cookbook!'
+    puts '           --           '
 
     while @running
       display_tasks
@@ -25,7 +25,7 @@ class Router
     when 3 then @controller.destroy
     when 4 then stop
     else
-      puts "Please press 1, 2, 3 or 4"
+      puts 'Please press 1, 2, 3 or 4'
     end
   end
 
@@ -34,11 +34,11 @@ class Router
   end
 
   def display_tasks
-    puts ""
-    puts "What do you want to do next?"
-    puts "1 - List all recipes"
-    puts "2 - Create a new recipe"
-    puts "3 - Destroy a recipe"
-    puts "4 - Stop and exit the program"
+    puts ''
+    puts 'What do you want to do next?'
+    puts '1 - List all recipes'
+    puts '2 - Create a new recipe'
+    puts '3 - Destroy a recipe'
+    puts '4 - Stop and exit the program'
   end
 end

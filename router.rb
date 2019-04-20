@@ -1,4 +1,4 @@
-class Router # #initialized with controller instance
+class Router 
   def initialize(controller)
     @controller = controller
     @running    = true

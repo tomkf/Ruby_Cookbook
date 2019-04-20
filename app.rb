@@ -1,15 +1,15 @@
-require_relative 'repo' # You need to create this file!
-require_relative 'controller' # You need to create this file!
+require_relative 'repo' 
+require_relative 'controller' 
 require_relative 'router'
 require 'csv'
 require_relative 'view'
 require_relative 'recipe_model'
 
-csv_file   = File.join(__dir__, 'recipes.csv') # define file path for csv storage
+csv_file   = File.join(__dir__, 'recipes.csv') 
 cookbook   = Cookbook.new(csv_file)
-controller = Controller.new(cookbook) # create the controller, give it the repo
+controller = Controller.new(cookbook) 
 
-router = Router.new(controller) # holds reference to the controller
+router = Router.new(controller) 
 
 # Start the app
 router.run

@@ -12,7 +12,10 @@ class Controller # holds reference to the repo and the view
     @view = View.new
    end
 
-  def list; end
+  def list
+    info_to_display = @cookbook.all #return the array from the repo
+    @view.display(info_to_display) #send it to the view to display
+   end
 
   def create; end
 

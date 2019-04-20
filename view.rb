@@ -15,4 +15,13 @@ class View
     puts 'Good choice, I just added your reicpe to the cookbook'
     return new_val = [recipe_name, description]
   end
+
+def destroy(info_from_repo)
+display(info_from_repo)
+puts "Enter the corresponding number of the recipe you would like to destroy: "
+user_input = gets.chomp.to_i 
+user_input += 1
+puts "O.K, I removed #{info_from_repo[user_input]} from the cookbook"
+end
+
 end

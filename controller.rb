@@ -24,5 +24,9 @@ class Controller # holds reference to the repo and the view
     @cookbook.add_recipe(created_recipe)
   end
 
-  def destroy; end
+  def destroy
+    info_to_display = @cookbook.all
+    desired_index = @view.destroy(info_to_display)
+    @cookbook.remove_recipe(desired_index)
+   end
 end

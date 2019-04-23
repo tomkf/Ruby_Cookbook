@@ -1,8 +1,9 @@
 class View
   def display(info_from_repo)
     info_from_repo.each_with_index do |item, index|
-      check_box = display_check_mark?(item)
-      puts "#{index + 1}. #{check_box} #{item.name} - (#{item.prep_time})"
+      p item
+      box = display_check_mark(item)
+      puts "#{index + 1}. #{box} #{item.name} - (#{item.prep_time})"
     end
    end
 
@@ -41,11 +42,14 @@ class View
     user_input -= 1
   end
 
-  def display_check_mark?(instance)
-    check_box = '[]'
-    check_box = '[X]' if instance.box_check == true
-    check_box
+  def display_check_mark(instance)  
+    check_box = "[X]"
+    if instance.box_check != true  
+      check_box = "[]"
+    end
+    return check_box
   end
+  
 
   def check(info_from_repo)
     display(info_from_repo)
@@ -55,3 +59,4 @@ class View
     user_input -= 1
   end
 end
+

@@ -11,7 +11,7 @@ class Cookbook
 
   def load_csv
     CSV.foreach(@csv_file_path) do |row|
-      @local_storage.push(Recipe.new(row[0], row[1], row[2], row[3]))
+      @local_storage.push(Recipe.new(row[0], row[1], row[2], row[3] == "true"))
     end
   end
 
@@ -35,8 +35,15 @@ class Cookbook
     end
   end
 
-  def write_to_csv
+  def write_to_csv(control_info)
     # call this maybe in the remove_recipe def....
-    CSV.open(@csv_file_path)
-      end
+    CSV.open(@csv_file_path, "w") do |csv|
+      control_info.each do |item|
+      csv << [item.name, item.description, item.prep_time, item.box_check]
+    end
+  end
+  end
+    
  end
+
+
